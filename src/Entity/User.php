@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 /**
@@ -19,7 +20,17 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *          "username": "exact"
  *      }
  * )
- * @ApiResource()
+ * @ApiResource(
+  *     itemOperations={"get", "put", "delete"},
+ *     collectionOperations={
+ *          "post",
+ *          "get" = {
+ *                 "normalization_context" = {
+ *                        "groups" = { "get-user-with-client" }
+ *                  }
+ *           }
+ *      }
+ *)
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity("username")
  * @UniqueEntity("email")
@@ -30,33 +41,34 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     *@Groups({"get-user-with-client"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *@Groups({"get-user-with-client"})
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *@Groups({"get-user-with-client"})
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *@Groups({"get-user-with-client"})
      */
     private $email;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Fiche", mappedBy="utilisateur")
+     * @ORM\OneToOne(targetEntity="App\Entity\Client", mappedBy="user", cascade={"persist", "remove"})
+     *@Groups({"get-user-with-client"})
      */
-    private $fiches;
+    private $client;
 
-    public function __construct()
-    {
-        $this->fiches = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -99,15 +111,7 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection
-     */
-    public function getFiches(): Collection
-    {
-        return $this->fiches;
-    }
 
-    
     /**
      * @see UserInterface
      */
@@ -129,7 +133,24 @@ class User implements UserInterface
      */
     public function eraseCredentials()
     {
-       
+
+    }
+
+     public function getClient(): ?Client
+    {
+        return $this->client;
+    }
+
+    public function setClient(Client $client): self
+    {
+        $this->client = $client;
+
+        // set the owning side of the relation if necessary
+        if ($client->getUser() !== $this) {
+            $client->setUser($this);
+        }
+
+        return $this;
     }
 
 }
