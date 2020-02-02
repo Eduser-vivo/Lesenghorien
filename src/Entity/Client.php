@@ -57,12 +57,6 @@ class Client
     private $numero;
 
     /**
-     * @ORM\Column(type="date")
-     *@Groups({"get-user-with-client", "write-client-and-user"})
-     */
-    private $dateCreation;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\ReservationBus", mappedBy="client")
      */
     private $reservationBuses;
@@ -126,17 +120,7 @@ class Client
         return $this;
     }
 
-    public function getDateCreation(): ?\DateTimeInterface
-    {
-        return $this->dateCreation;
-    }
 
-    public function setDateCreation(\DateTimeInterface $dateCreation): self
-    {
-        $this->dateCreation = $dateCreation;
-
-        return $this;
-    }
 
     /**
      * @return Collection|ReservationBus[]

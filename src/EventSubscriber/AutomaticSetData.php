@@ -7,6 +7,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use ApiPlatform\Core\EventListener\EventPriorities;
 use App\Entity\Client;
 use App\Entity\Reservation;
+use App\Entity\User;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 
@@ -33,10 +34,6 @@ class AutomaticSetData implements EventSubscriberInterface
             }else{
                 if($entity instanceof Reservation){
                     $entity->setDateReservation(new \DateTime());
-                }else{
-                    if($entity instanceof Client){
-                        $entity->setDateCreation(new \DateTime());
-                    }
                 }
             }
         }

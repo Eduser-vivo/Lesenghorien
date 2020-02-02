@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 
@@ -43,18 +44,21 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"get-user-with-client","write-client-and-user"})
+     * @Assert\NotBlank(message="Veuiller renseigner votre nom d'utilisateur")
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"get-user-with-client","write-client-and-user"})
+     * @Assert\NotBlank(message="Veuiller renseigner votre mot de passe")
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"get-user-with-client","write-client-and-user"})
+     * @Assert\NotBlank(message="Veuiller renseigner votre email")
      */
     private $email;
 
