@@ -10,7 +10,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *      denormalizationContext={"groups"={"write-client-and-user"}}
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
  */
 class Client
@@ -19,7 +21,7 @@ class Client
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     *@Groups({"get-user-with-client"})
+     *@Groups({"get-user-with-client", "write-client-and-user"})
      */
     private $id;
 
@@ -30,7 +32,7 @@ class Client
      * min=2,
      * minMessage="Votre nom est invalide"
      * )
-     *@Groups({"get-user-with-client"})
+     *@Groups({"get-user-with-client", "write-client-and-user"})
      */
     private $nom;
 
@@ -41,7 +43,7 @@ class Client
      * min=2,
      * minMessage="Votre prenom est invalide"
      * )
-     *@Groups({"get-user-with-client"})
+     *@Groups({"get-user-with-client", "write-client-and-user"})
      */
     private $prenom;
 
@@ -52,13 +54,13 @@ class Client
      * min=8,
      * minMessage="Votre numero de telephone est invalide"
      * )
-     *@Groups({"get-user-with-client"})
+     *@Groups({"get-user-with-client", "write-client-and-user"})
      */
     private $numero;
 
     /**
      * @ORM\Column(type="date")
-     *@Groups({"get-user-with-client"})
+     *@Groups({"get-user-with-client", "write-client-and-user"})
      */
     private $dateCreation;
 
@@ -75,6 +77,7 @@ class Client
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="client", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"write-client-and-user"})
      */
     private $user;
   

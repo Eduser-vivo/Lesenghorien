@@ -5,6 +5,7 @@ use App\Entity\ReservationBus;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\KernelEvents;
 use ApiPlatform\Core\EventListener\EventPriorities;
+use App\Entity\Client;
 use App\Entity\Reservation;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
@@ -24,12 +25,6 @@ class AutomaticSetData implements EventSubscriberInterface
         $entity = $event->getControllerResult();
         $method = $event->getRequest()->getMethod();
 
-        // if(!$entity instanceof ReservationBus || Request::METHOD_POST !== $method){
-        //     return;
-        // }else{
-        //     $entity->setDateReservation(new \DateTime());
-        // }
-
         if(Request::METHOD_POST !== $method){
             return;
         }else{
@@ -38,6 +33,10 @@ class AutomaticSetData implements EventSubscriberInterface
             }else{
                 if($entity instanceof Reservation){
                     $entity->setDateReservation(new \DateTime());
+                }else{
+                    if($entity instanceof Client){
+                        $entity->setDateCreation(new \DateTime());
+                    }
                 }
             }
         }

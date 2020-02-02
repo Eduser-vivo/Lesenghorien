@@ -14,23 +14,17 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 
 /**
+ * @ApiResource(
+ *    normalizationContext = {"groups" = { "get-user-with-client" }}
+ * )
+ *
  * @ApiFilter(
  *      SearchFilter::class,
  *      properties={
  *          "username": "exact"
  *      }
  * )
- * @ApiResource(
-  *     itemOperations={"get", "put", "delete"},
- *     collectionOperations={
- *          "post",
- *          "get" = {
- *                 "normalization_context" = {
- *                        "groups" = { "get-user-with-client" }
- *                  }
- *           }
- *      }
- *)
+ * 
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity("username")
  * @UniqueEntity("email")
@@ -41,25 +35,25 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     *@Groups({"get-user-with-client"})
+     *@Groups({"get-user-with-client","write-client-and-user"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *@Groups({"get-user-with-client"})
+     *@Groups({"get-user-with-client","write-client-and-user"})
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *@Groups({"get-user-with-client"})
+     *@Groups({"get-user-with-client","write-client-and-user"})
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *@Groups({"get-user-with-client"})
+     *@Groups({"get-user-with-client","write-client-and-user"})
      */
     private $email;
 
