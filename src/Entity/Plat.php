@@ -18,25 +18,25 @@ class Plat
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"get-menu-with-plats"})
+     * @Groups({"reservation-with-panier","get-menu-with-plats"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"get-menu-with-plats"})
+     * @Groups({"reservation-with-panier","get-menu-with-plats"})
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"get-menu-with-plats"})
+     * @Groups({"reservation-with-panier","get-menu-with-plats"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups({"get-menu-with-plats"})
+     * @Groups({"reservation-with-panier","get-menu-with-plats"})
      */
     private $prix;
 

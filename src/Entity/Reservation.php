@@ -3,20 +3,33 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiFilter;
 use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+
+ 
 
 /**
  * @ApiResource(
  *      normalizationContext = {"groups" = { "reservation-with-panier" }},
- *       denormalizationContext={"groups"={"write"}}
+ *      denormalizationContext={"groups"={"write"}}
  * )
+ * @ApiFilter(
+ *     SearchFilter::class,
+ *     properties = {
+ *          "client.id" = "exact",
+ *          "dateReservation" = "exact"
+ *     }
+ * )
+ * 
  * @ORM\Entity(repositoryClass="App\Repository\ReservationRepository")
  */
 class Reservation
 {
+    
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -38,7 +51,7 @@ class Reservation
      */
     private $client;
 
-    /**
+    /** 
      * @ORM\OneToMany(targetEntity="App\Entity\ReservationPlat", mappedBy="reservation", cascade={"persist", "remove"})
      *  @Groups({"reservation-with-panier", "write"})
      */

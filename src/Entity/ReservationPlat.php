@@ -16,20 +16,20 @@ class ReservationPlat
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     *  @Groups({"reservation-with-panier", "write"})
+     * @Groups({"reservation-with-panier","write"})
      */
     private $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Plat", inversedBy="reservationPlats")
      * @ORM\JoinColumn(nullable=false)
-     *  @Groups({"reservation-with-panier", "write"})
+     *  @Groups({"reservation-with-panier","write"})
      */
     private $plat;
 
     /**
      * @ORM\Column(type="integer")
-     *  @Groups({"reservation-with-panier", "write"})
+     *  @Groups({"reservation-with-panier","write"})
      */
     private $quantite;
 
