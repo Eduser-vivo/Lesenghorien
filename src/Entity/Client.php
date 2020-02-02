@@ -10,9 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource(
- *      denormalizationContext={"groups"={"write-client-and-user"}}
- * )
+ * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
  */
 class Client
@@ -77,9 +75,9 @@ class Client
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="client", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"write-client-and-user"})
      */
     private $user;
+
   
     public function __construct()
     {
@@ -213,6 +211,5 @@ class Client
 
         return $this;
     }
-
 
 }

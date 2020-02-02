@@ -15,7 +15,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource(
- *    normalizationContext = {"groups" = { "get-user-with-client" }}
+ *    normalizationContext = {"groups" = { "get-user-with-client" }},
+ *     denormalizationContext={"groups"={"write-client-and-user"}}
  * )
  *
  * @ApiFilter(
@@ -35,31 +36,31 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     *@Groups({"get-user-with-client","write-client-and-user"})
+     * @Groups({"get-user-with-client","write-client-and-user"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *@Groups({"get-user-with-client","write-client-and-user"})
+     * @Groups({"get-user-with-client","write-client-and-user"})
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *@Groups({"get-user-with-client","write-client-and-user"})
+     * @Groups({"get-user-with-client","write-client-and-user"})
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *@Groups({"get-user-with-client","write-client-and-user"})
+     * @Groups({"get-user-with-client","write-client-and-user"})
      */
     private $email;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Client", mappedBy="user", cascade={"persist", "remove"})
-     *@Groups({"get-user-with-client"})
+     * @Groups({"get-user-with-client", "write-client-and-user"})
      */
     private $client;
 
@@ -130,7 +131,7 @@ class User implements UserInterface
 
     }
 
-     public function getClient(): ?Client
+    public function getClient(): ?Client
     {
         return $this->client;
     }
@@ -146,5 +147,4 @@ class User implements UserInterface
 
         return $this;
     }
-
 }
