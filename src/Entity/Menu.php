@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
 
 /**
  * @ApiResource(
@@ -14,6 +16,12 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *     collectionOperations={"post", "get"},
  *     normalizationContext = {"groups" = { "get-menu-with-plats" }}
  *)
+ *
+ *@ApiFilter(
+ *    DateFilter::class,
+ *    properties = {"dateValidite" }
+ *  )
+ *
  * @ORM\Entity(repositoryClass="App\Repository\MenuRepository")
  */
 class Menu
