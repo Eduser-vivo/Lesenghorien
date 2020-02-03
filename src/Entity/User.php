@@ -28,8 +28,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * )
  * 
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @UniqueEntity("username")
- * @UniqueEntity("email")
+ * @UniqueEntity("username", message="ce nom d'utilisateur existe déjà veuillez changer")
+ * @UniqueEntity("email", message=" cet email existe déjà veuillez changer")
  */
 class User implements UserInterface
 {
