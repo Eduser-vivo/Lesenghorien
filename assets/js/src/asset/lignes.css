@@ -1,0 +1,64 @@
+#lignesTitle{
+    background-color: red;
+    height: auto;
+    width: 100%;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+#ligneBody{
+    padding-top: 5px;
+    position: relative;
+    margin: auto;
+}
+
+.card{
+    margin-bottom: 10px;
+    margin-left: 14px;
+}
+
+#backBtn{
+    margin-right: 15px;
+    border-radius: 0;
+}
+@media (min-width: 576px) {
+    
+    }
+
+
+@media (min-width: 768px) {
+    #ligneBody{
+        width: 100%;
+
+    }
+    .card{
+        max-width: 300px;
+        margin-left: 5px;
+        display: inline-block;
+    }
+}
+
+@media (min-width: 992px) {
+    #ligneBody{
+        width: 100%;
+
+    }
+    .card{
+        max-width: 300px;
+        margin-left: 5px;
+        display: inline-block;
+    }
+}
+
+@media (min-width: 1200px) {
+    #ligneBody{
+        width: 100%;
+    }
+
+    .card{
+        max-width: 300px;
+        margin-left: 5px;
+        display: inline-block;
+    }
+}

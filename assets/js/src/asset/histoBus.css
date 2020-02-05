@@ -1,0 +1,18 @@
+#histoCard{
+    margin: 0 auto;
+    width: 300px;
+    height: 150px;
+    margin-left: 10px;
+}
+
+#alert-login{
+    margin: auto;
+    width: max-content;
+    margin-top: 50px;
+}
+
+#histoBus{
+    max-width: 1000px;
+    margin:auto;
+}
+

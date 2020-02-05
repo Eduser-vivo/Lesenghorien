@@ -1,0 +1,46 @@
+#homeConteneur{
+    margin: 0;
+    padding: 0;
+}
+
+#homeConteneur{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#homeNavBar{
+    float: right;
+}
+
+#homeHeader{
+    width: 100%;
+    height: 250px;
+    text-align: center;
+    color: #FFF;
+    background-color: red;
+    margin-bottom: 80px;
+}
+
+#homeHeaderMsg{
+   bottom: 50px;
+   padding-top: 80px;
+}
+
+#homeBody{
+    width: 90%;
+    
+}
+
+#cardRestaurant, #cardBus{
+    height: 120px;
+}
+
+#mesHistorique{
+    float: left;
+    padding-top: 5px;
+}
+
+#cardH{
+    width: auto;
+}

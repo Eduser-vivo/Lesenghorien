@@ -1,0 +1,79 @@
+
+#formLogin{
+    width: 100%;
+    font-family: fantasy;
+    background-color: #fff;
+    height: 655px;
+}
+
+#ConnexionNavBar{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 576px) { 
+    #formLogin{
+        width: 90%;
+        margin-top: 0;
+        font-family: fantasy;
+        background-color: #fff;
+        height: max-content;
+    }
+ }
+
+@media (min-width: 768px) {
+    body {
+        background-color: lightgray;
+    }
+    #formLogin{
+        width: 70%;
+        font-family: fantasy;
+        margin-top: 100px;
+        background-color: #fff;
+        height: max-content;
+    }
+  }
+
+@media (min-width: 992px) { 
+    body {
+        background-color: lightgray;
+    }
+    #formLogin{
+        width: 60%;
+        font-family: fantasy;
+        margin-top: 100px;
+        background-color: #fff;
+        height: max-content;
+    }
+ }
+
+@media (min-width: 1200px) {
+    body {
+        background-color: lightgray;
+    }
+    #formLogin{
+        width: 50%;
+        font-family: fantasy;
+        margin-top: 100px;
+        background-color: #fff;
+        height: max-content;
+    }
+ }
+
+
+#formContainer{
+    background-color: #fff;
+    width: 100%;
+    margin: auto;
+    padding: 30px;
+}
+
+#legendLogin{
+    text-align: center;
+}
+
+#alert-login{
+    margin: auto;
+    width: max-content;
+    margin-right: 5px;
+}

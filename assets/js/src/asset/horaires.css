@@ -1,0 +1,26 @@
+
+#horairesTitle{
+    background-color: red;
+    height: auto;
+    width: 100%;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+#horaireDuJour{
+    text-align: center;
+}
+
+#backBtn{
+    margin-right: 15px;
+    border-radius: 0;
+}
+
+#horairesBody{
+    width: 100%;
+}
+
+#cardHoraire{
+   width: 300px;
+}

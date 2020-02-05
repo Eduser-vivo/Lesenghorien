@@ -1,0 +1,27 @@
+#platAjout{
+    display: flex;
+    justify-content: space-between;
+}
+
+#listeMenuTitle{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
+#commandeBtn{
+    border-radius: 0;
+}
+
+#platCompte{
+    float: right;
+}
+
+#acheterBtn{
+    width: 200px;
+    position: absolute;
+    z-index: auto;
+    position: fixed;
+    bottom: 10px;
+    right: 5px;
+}

@@ -1,0 +1,85 @@
+body{
+  font-family: fantasy;
+  font-size: 12px;
+}
+
+
+@media (min-width: 1200px) { 
+  body{
+    font-size: 17px;
+  }
+  #appContent{
+    width: 100%;
+    margin: auto;
+  }
+
+  
+  #homeCardContainer{
+    width: 500px;
+    margin: auto;
+  }
+
+  #cardRestaurant, #cardBus{
+    height: 300px;
+  }
+
+  #ligneBody{
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) { 
+  body{
+    font-size: 17px;
+  }
+
+  #appContent{
+    width: 100%;
+    margin: auto;
+  }
+
+
+  #homeCardContainer{
+    width: 500px;
+    margin: auto;
+  }
+
+  #cardRestaurant, #cardBus{
+    height: 300px;
+  }
+
+  #ligneBody{
+    width: 100%;
+  }
+
+  
+}
+
+  @media (min-width: 768px) {
+    
+    body{
+      font-size: 17px;
+    }
+
+    
+    #appContent{
+      width: 100%;
+      margin: auto;
+      min-height: 560px;
+    }
+  
+    #homeCardContainer{
+      width: 500px;
+      margin: auto;
+    }
+  
+    #cardRestaurant, #cardBus{
+      height: 300px;
+    }
+  
+    #ligneBody{
+      width: 100%;
+    }
+}
+
+  

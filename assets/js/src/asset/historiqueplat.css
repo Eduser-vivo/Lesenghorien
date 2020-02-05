@@ -1,0 +1,46 @@
+#historiqueplat{
+    width: 100%;
+    background-color: red;
+    color: #FFF;
+    position: absolute;
+    top: 0;
+    position: fixed;
+}
+
+#bodyhistoReserv{
+    max-width: 1000px;
+    top: 50px;
+    position: relative;
+    margin: auto;
+}
+
+#histoCard1{
+    margin: 0 auto;
+    width: 300px;
+    height: 115px;
+    margin-left: 15px;
+}
+#histoCard2{
+    margin: 0 auto;
+    width: 300px;
+    height: 150px;
+    margin-left: 30px;
+}
+
+#alert-login{
+    margin: auto;
+    width: max-content;
+    margin-top: 50px;
+}
+
+.pan-action{
+    margin-right: 3px;
+}
+
+#reserver-btn{
+    position: absolute;  
+    position: fixed; 
+    bottom: 50px;
+    right: 5px;
+}
+
