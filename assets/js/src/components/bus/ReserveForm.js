@@ -40,7 +40,7 @@ const RerserveForm = (props) => {
     if(reservStatus){
         return (<Redirect to={{pathname:'/historique-bus', state:{ referer:'/reservation'}}}  />);
     }
-    
+    alert(loading);
     return (
         <div>
             {

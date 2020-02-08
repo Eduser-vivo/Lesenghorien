@@ -38,7 +38,7 @@ class HistoriquePlat extends React.Component {
         <div className="container" id="bodyhistoReserv">
 
             {
-              histo && (histo.length === 0 && histo === null)?(
+              histo && (histo.length === 0 || histo === null)?(
                 <div id="alert-login">
                   <span className="alert alert-secondary float-center" role="alert" > vous n'avez effectué aucune reservation </span>
               </div>
